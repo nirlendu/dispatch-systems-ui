@@ -54,7 +54,7 @@ export default class Customer extends React.Component {
 		let customerData = value;
 		customerData.rideId = randomstring.generate({
 			length: 5
-		});
+		}).toUpperCase();
 		request
 		.post('/customer')
 		.send(customerData)

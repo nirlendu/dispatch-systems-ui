@@ -20,7 +20,9 @@ var ConstUrlsDev = {
 			'PlaceholderImage600x300' : '/assets/img/app/placeholder/placeholder-3.jpg',
 		}
 	},
+	'Select': 'http://localhost:3000/api/select/',
 	'Fetch': {
+		'Driver': 'http://localhost:3000/api/driver/',
 		'Dashboard': 'http://localhost:3000/api/dashboard',
 	},
 	'Post': {

@@ -27,6 +27,14 @@ const Url = require('app/config/core/url');
 // Initializing the router
 const router = express.Router();
 
+router.get('/api/driver/:driverId', function(req, res) { 
+	request
+	.get(Url.Api + 'ride/driver/' + req.params.driverId)
+	.end(function(error, response){
+		res.json(response.body);
+	})
+});
+
 router.get('/api/dashboard', function(req, res) { 
 	request
 	.get(Url.Api + 'ride/all')
@@ -41,6 +49,14 @@ router.post('/api/customer', function(req, res) {
 	.send(req.body)
 	.end(function(error, response){
 		res.send();
+	})
+});
+
+router.get('/api/select/:rideId/:driverId', function(req, res) {
+	request
+	.get(Url.Api + 'ride/accept/' + req.params.rideId + '/' +req.params.driverId)
+	.end(function(error, response){
+		res.send(response.body);
 	})
 });
 

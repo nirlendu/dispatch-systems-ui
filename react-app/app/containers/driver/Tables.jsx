@@ -8,10 +8,11 @@
 
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
-import ProgressiveImage from 'react-progressive-image'
 
 import CoreStyle from 'app/config/core/style'
 import Url from 'app/config/core/url'
+
+import Waiting from 'app/components/driver/Waiting'
 
 const Style = StyleSheet.create({
 	Parent : {
@@ -39,15 +40,31 @@ const Style = StyleSheet.create({
 	}
 })
 
-class FirstDescription extends React.Component {
+class Tables extends React.Component {
 
 	render() {
+		let waitingRide = [];
+		let ongoingRide = [];
+		let completedRide = [];
+		this.props.data.map(function(data){
+			if(data.status == 'WAITING'){
+				waitingRide.push(data);
+			}
+			if(data.status == 'ONGOING'){
+				ongoingRide.push(data);
+			}
+			if(data.status == 'COMPLETE'){
+				completedRide.push(data);
+			}
+		});
 		return (
 			<div className={css(Style.Parent)}>
-				Hi
+				<Waiting
+					data={waitingRide}
+				/>
 			</div>
 		);
 	}
 }
 
-export default FirstDescription;
+export default Tables;

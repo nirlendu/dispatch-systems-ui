@@ -11,7 +11,7 @@ import { StyleSheet, css } from 'aphrodite'
 
 import CoreStyle from  'app/config/core/style'
 
-import FirstDescription from 'app/containers/index/FirstDescription'
+import Tables from 'app/containers/driver/Tables'
 
 const Style = StyleSheet.create({
 	Wrapper : {
@@ -30,11 +30,13 @@ const Style = StyleSheet.create({
 	},
 })
 
-export default class Index extends React.Component {
+export default class Driver extends React.Component {
 	render() {
 		return (
 			<div className={css(Style.Wrapper)}>
-				<FirstDescription/>
+				<Tables
+					data={this.props.data}
+				/>
 			</div>
 		)
 	}
