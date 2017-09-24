@@ -8,7 +8,7 @@ var ConstUrlsProduction = {
 	'Font' : 'https://fonts.googleapis.com/css?family=Lusitana',
 	'Api' : 'http://localhost:9000/v1/',
 	'Static': {
-		'Host': 'http://localhost:3000',
+		'Host': 'https://docsapp.panally.com',
 		'Font': '/assets/fonts/',
 		'Media': '/assets/img/',
 		'Css': '/assets/css/',
@@ -20,13 +20,13 @@ var ConstUrlsProduction = {
 			'PlaceholderImage600x300' : '/assets/img/app/placeholder/placeholder-3.jpg',
 		}
 	},
-	'Select': 'http://localhost:3000/api/select/',
+	'Select': 'https://docsapp.panally.com/api/select/',
 	'Fetch': {
-		'Driver': 'http://localhost:3000/api/driver/',
-		'Dashboard': 'http://localhost:3000/api/dashboard',
+		'Driver': 'https://docsapp.panally.com/api/driver/',
+		'Dashboard': 'https://docsapp.panally.com/api/dashboard',
 	},
 	'Post': {
-		'Customer': 'http://localhost:3000/api/customer',
+		'Customer': 'https://docsapp.panally.com/api/customer',
 	}
 }
 
