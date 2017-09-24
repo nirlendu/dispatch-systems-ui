@@ -1,0 +1,26 @@
+{
+	"rows": [
+		{
+			"name": "Top picks",
+			"type": "business",
+			"items": [
+				{
+					"slug" : "triund-trek",
+					"code" : "MI1826TS",
+					"image" : "triund-trek.jpg",
+					"oldPrice": 1550,
+					"price": 1399,
+					"name" : "Triund Trek",
+					"description" : "The trek for everyone",
+					"duration" : "2D-1N",
+					"type" : "journey",
+					"keys" : ["Camp","Trek"],
+					"rating" : 5,
+					"reviews" : 4,
+					"isInstantConfirmation": true,
+					"isFlexiPayment": true
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Agni",
+  "description": "Backend for Agni Engine",
+  "repository": "https://github.com/Panally/Agni.git",
+  "website": "http://www.panally.com",
+  "success_url": "/",
+}
