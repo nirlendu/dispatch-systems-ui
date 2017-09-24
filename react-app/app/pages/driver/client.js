@@ -4,7 +4,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var store = require('app/pages/index/redux-store');
+var store = require('app/pages/driver/redux-store');
 var ReactRouter = require('react-router');
 var match = ReactRouter.match;
 
@@ -21,7 +21,7 @@ delete window.__PRELOADED_STATE__;
 
 var storeContainer = store.configureStore(preloadedState);
 
-match({routes: routes, location: '/'}, function(error, redirectLocation, renderProps) {
+match({routes: routes, location: '/driver'}, function(error, redirectLocation, renderProps) {
     if (error) {
          // TODO
     }

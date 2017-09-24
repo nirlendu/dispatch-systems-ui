@@ -42,9 +42,62 @@ const router = require('app/router/api-router');
 const AssetName = JSON.parse(fs.readFileSync('manifest.json'));
 const commonJs = Url.Static.Js + AssetName['common.js'];
 
-router.get('/', function(req, res) {
+router.get('/customer', function(req, res) {
 
-	let store = require('app/pages/index/redux-store');
+	let store = require('app/pages/customer/redux-store');
+
+	const initialState = {
+		data : {},
+	}
+	store = store.configureStore(initialState);
+
+	match({routes: routes, location: req.url}, function(error, redirectLocation, renderProps) {
+		if (error) {
+			res.status(500).send(error.message)
+		} else if (redirectLocation) {
+			res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+		} else if (renderProps) {
+
+			const {html, css} = StyleSheetServer.renderStatic(() => {
+				return ReactDOMServer.renderToString(
+					Provider({store: store}, RouterContext(renderProps))
+				);
+			});
+			const head = Helmet.rewind();
+			const pageJs = Url.Static.Js + AssetName['customer.js'];
+			const webPage = compressor`
+				<!doctype html>
+				<html>
+					<head>
+						<meta charset="utf-8" />
+						<title>Test App</title>
+						<title>${head.title}</title>
+						${head.meta.toString()}
+						${head.link.toString()}
+						${head.style.toString()}
+						${head.script.toString()}
+						<style data-aphrodite>${css.content}</style>
+					</head>
+					<body>
+						<div id="react-mount">${html}</div>
+						<script src=${commonJs}></script>
+						<script src=${pageJs}></script>
+					</body>
+				</html>
+			`;
+			res.header('Content-Type', 'text/html');
+			res.write(webPage);
+			res.end();
+
+		} else {
+			res.status(404).send('Not found');
+		}
+	}); 
+});
+
+router.get('/driver', function(req, res) {
+
+	let store = require('app/pages/driver/redux-store');
 
 	request
 		.get(Url.Fetch.Index)
@@ -73,7 +126,7 @@ router.get('/', function(req, res) {
 				});
 				const preloadedState = store.getState();
 				const head = Helmet.rewind();
-				const pageJs = Url.Static.Js + AssetName['index.js'];
+				const pageJs = Url.Static.Js + AssetName['driver.js'];
 				const webPage = compressor`
 					<!doctype html>
 					<html>
@@ -107,5 +160,73 @@ router.get('/', function(req, res) {
 		});    
 	}); 
 });
+
+
+router.get('/dashboard', function(req, res) {
+
+	let store = require('app/pages/dashboard/redux-store');
+
+	request
+		.get(Url.Fetch.Dashboard)
+		.end(function(error, response){
+
+		if (error) {
+			//TODO
+		}
+
+		const initialState = {
+			data : response.body,
+		}
+		store = store.configureStore(initialState);
+
+		match({routes: routes, location: req.url}, function(error, redirectLocation, renderProps) {
+			if (error) {
+				res.status(500).send(error.message)
+			} else if (redirectLocation) {
+				res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+			} else if (renderProps) {
+
+				const {html, css} = StyleSheetServer.renderStatic(() => {
+					return ReactDOMServer.renderToString(
+						Provider({store: store}, RouterContext(renderProps))
+					);
+				});
+				const preloadedState = store.getState();
+				const head = Helmet.rewind();
+				const pageJs = Url.Static.Js + AssetName['dashboard.js'];
+				const webPage = compressor`
+					<!doctype html>
+					<html>
+						<head>
+							<meta charset="utf-8" />
+							<title>Test App</title>
+							<title>${head.title}</title>
+							${head.meta.toString()}
+							${head.link.toString()}
+							${head.style.toString()}
+							${head.script.toString()}
+							<style data-aphrodite>${css.content}</style>
+						</head>
+						<body>
+							<div id="react-mount">${html}</div>
+							<script>
+							  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+							</script>
+							<script src=${commonJs}></script>
+							<script src=${pageJs}></script>
+						</body>
+					</html>
+				`;
+				res.header('Content-Type', 'text/html');
+				res.write(webPage);
+				res.end();
+
+			} else {
+				res.status(404).send('Not found');
+			}
+		});    
+	}); 
+});
+
 
 module.exports = router;

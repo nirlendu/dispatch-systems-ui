@@ -9,8 +9,8 @@
 import React from 'react'
 import {connect}  from 'react-redux'
 
-import Index from 'app/pages/index/Index'
-import Include from 'app/pages/index/Include'
+import Index from 'app/pages/driver/Index'
+import Include from 'app/pages/driver/Include'
 
 
 class Page extends React.Component {

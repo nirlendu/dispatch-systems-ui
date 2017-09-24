@@ -21,7 +21,7 @@ var ConstUrlsDev = {
 		}
 	},
 	'Fetch': {
-		'Index': 'http://localhost:3000/api/index',
+		'Dashboard': 'http://localhost:3000/api/dashboard',
 	}
 }
 

@@ -27,17 +27,12 @@ const Url = require('app/config/core/url');
 // Initializing the router
 const router = express.Router();
 
-router.get('/api/index', function(req, res) { 
-	const IndexFile = path.join('schema/index.json');  
-	fs.readFile(IndexFile, function(err, data) {
-		if (err) {
-			console.error(err);
-			res.json({});
-			res.end();
-		}else{
-			res.json(JSON.parse(data));
-		}
-	});
+router.get('/api/dashboard', function(req, res) { 
+	request
+	.get(Url.Api + 'ride/all')
+	.end(function(error, response){
+		res.json(response.body);
+	})
 });
 
 if (process.env.LOCAL == 'true'){

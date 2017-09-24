@@ -13,7 +13,9 @@ process.noDeprecation = true;
 
 module.exports = {
 	entry: {
-		'index': path.resolve('app/pages/index/client.js')
+		'driver': path.resolve('app/pages/driver/client.js'),
+		'customer': path.resolve('app/pages/customer/client.js'),
+		'dashboard': path.resolve('app/pages/dashboard/client.js')
 	},
 	output: {
 		path: path.resolve('../assets/static/js'),
