@@ -1,6 +1,6 @@
-# Akash 
+# Web App 
 
-Panally Web App.
+Web App.
 
 ## To use
 

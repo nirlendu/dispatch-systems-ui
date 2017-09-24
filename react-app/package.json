@@ -1,7 +1,7 @@
 {
-  "name": "Agni",
+  "name": "Web",
   "version": "0.0.0",
-  "description": "Backend for Agni Engine",
+  "description": "Backend for Web Engine",
   "main": "server.js",
   "dependencies": {
     "aphrodite": "^1.2.1",
@@ -98,10 +98,8 @@
     "local": "npm run clean && cross-env NODE_ENV='development' npm run build-webpack && npm run local-server"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/panally/agni.git"
+    "type": "git"
   },
-  "homepage": "http://www.panally.com",
   "engines": {
     "node": "7.3.x"
   }

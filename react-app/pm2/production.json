@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "panally-prod",
+            "name": "prod",
             "script": "server.js",
             "merge_logs": true,
             "max_restarts": 20,
