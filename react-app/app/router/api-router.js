@@ -28,6 +28,7 @@ const Url = require('app/config/core/url');
 const router = express.Router();
 
 router.get('/api/driver/:driverId', function(req, res) { 
+	console.log(Url.Api + 'ride/driver/' + req.params.driverId);
 	request
 	.get(Url.Api + 'ride/driver/' + req.params.driverId)
 	.end(function(error, response){
@@ -53,6 +54,7 @@ router.post('/api/customer', function(req, res) {
 });
 
 router.get('/api/select/:rideId/:driverId', function(req, res) {
+	console.log(Url.Api + 'ride/accept/' + req.params.rideId + '/' +req.params.driverId);
 	request
 	.get(Url.Api + 'ride/accept/' + req.params.rideId + '/' +req.params.driverId)
 	.end(function(error, response){

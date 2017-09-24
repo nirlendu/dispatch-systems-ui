@@ -64,6 +64,7 @@ class Waiting extends React.Component {
 					window.location.reload();
 				})
 			};
+			console.log(Url.Select + request.rideId + '/' + getUrlParameter('driverId'));
 			let timeAgo = moment(request.requestTime).fromNow();
 			return(
 				<div key={request.rideId} className={css(Style.Container)}>
