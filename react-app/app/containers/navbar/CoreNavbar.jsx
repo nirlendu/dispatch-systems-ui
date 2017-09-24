@@ -60,9 +60,17 @@ export default class CoreNavbar extends React.Component {
 		return (
 			<header>
 				<div className="inner">
+					<span>
 					<nav className={css(Style.Parent)}>
-						TEST APP
+						&nbsp;&nbsp;Dispatch System
 					</nav>
+					</span>
+					<span>
+					<a href="/customer">&nbsp;&nbsp;Customer</a>
+					</span>
+					<span>
+					<a href="/dashboard">&nbsp;&nbsp;Dashboard</a>
+					</span>
 				</div>
 			</header> 
 		);

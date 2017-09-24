@@ -22,22 +22,13 @@ const Style = StyleSheet.create({
 			display: '-webkit-inline-flex',
 			display: '-ms-inline-flexbox',
 			display: 'inline-flex',
-			paddingTop: '4%',
 			marginLeft: '7.5%',
 			marginRight: 'auto',
 			width: '85%',
 		},
 		[CoreStyle.TAB.BREAKPOINT]:{
-			display: 'block',
-			width: '100%',
-			marginBottom: '0.5%',
-			marginTop: '5px',
 		},
 		[CoreStyle.MOB.BREAKPOINT]:{
-			display: 'block',
-			width: '100%',
-			marginBottom: '0.5%',
-			marginTop: '5px',
 		},
 	}
 })

@@ -9,6 +9,7 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import requestSuperagent from 'superagent'
+import moment from 'moment'
 
 import CoreStyle from 'app/config/core/style'
 import Url from 'app/config/core/url'
@@ -16,6 +17,20 @@ import Url from 'app/config/core/url'
 const Style = StyleSheet.create({
 	Parent : {
 		[CoreStyle.PC.BREAKPOINT]:{
+			width: '33%'
+		},
+		[CoreStyle.TAB.BREAKPOINT]:{
+		},
+		[CoreStyle.MOB.BREAKPOINT]:{
+		},
+	},
+	Container: {
+		[CoreStyle.PC.BREAKPOINT]:{
+			border: '1px solid rgba(128, 128, 128, 0.45)',
+			borderRadius: '5px',
+			padding: '10%',
+			margin: '10%',
+			color: [CoreStyle.COLOR.GREY]
 		},
 		[CoreStyle.TAB.BREAKPOINT]:{
 		},
@@ -42,7 +57,6 @@ class Waiting extends React.Component {
 		    }
 		};
 		const eachWaitingRequests = this.props.data.map(function(request){
-			console.log(Url.Select + request.rideId + '/' + getUrlParameter('driverId'));
 			let onSubmit = function(){
 				requestSuperagent
 				.get(Url.Select + request.rideId + '/' + getUrlParameter('driverId'))
@@ -50,16 +64,17 @@ class Waiting extends React.Component {
 					window.location.reload();
 				})
 			};
+			let timeAgo = moment(request.requestTime).fromNow();
 			return(
-				<div key={request.rideId}>
+				<div key={request.rideId} className={css(Style.Container)}>
 					<div>
-						{request.rideId}
+						Ride ID - {request.rideId}
 					</div>
 					<div>
-						{request.customerId}
+						Customer ID - {request.customerId}
 					</div>
 					<div>
-						{request.requestTime}
+						Requested - {timeAgo}
 					</div>
 					<div>
 						<button onClick={onSubmit}>Select</button>
@@ -69,6 +84,7 @@ class Waiting extends React.Component {
 		});
 		return (
 			<div className={css(Style.Parent)}>
+				&nbsp;&nbsp;Waiting Rides<br/>
 				{eachWaitingRequests}
 			</div>
 		);

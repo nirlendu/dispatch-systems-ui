@@ -42,6 +42,10 @@ const router = require('app/router/api-router');
 const AssetName = JSON.parse(fs.readFileSync('manifest.json'));
 const commonJs = Url.Static.Js + AssetName['common.js'];
 
+router.get('/', function(req, res) {
+	res.redirect(302, '/driver/?driverId=1');
+})
+
 router.get('/customer', function(req, res) {
 
 	let store = require('app/pages/customer/redux-store');

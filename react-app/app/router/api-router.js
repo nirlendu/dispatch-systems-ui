@@ -56,7 +56,7 @@ router.get('/api/select/:rideId/:driverId', function(req, res) {
 	request
 	.get(Url.Api + 'ride/accept/' + req.params.rideId + '/' +req.params.driverId)
 	.end(function(error, response){
-		res.send(response.body);
+		res.send();
 	})
 });
 
