@@ -32,8 +32,14 @@ const Style = StyleSheet.create({
 
 export default class Dashboard extends React.Component {
 	render() {
+		let onSubmit = function(){
+			window.location.reload();
+		};
 		return (
 			<div className={css(Style.Wrapper)}>
+				<div>
+					<button onClick={onSubmit}>Refresh</button>
+				</div>
 				<Tables
 					data={this.props.data}
 				/>

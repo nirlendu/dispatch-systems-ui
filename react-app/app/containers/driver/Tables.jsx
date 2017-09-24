@@ -13,6 +13,8 @@ import CoreStyle from 'app/config/core/style'
 import Url from 'app/config/core/url'
 
 import Waiting from 'app/components/driver/Waiting'
+import Ongoing from 'app/components/driver/Ongoing'
+import Complete from 'app/components/driver/Complete'
 
 const Style = StyleSheet.create({
 	Parent : {
@@ -61,6 +63,12 @@ class Tables extends React.Component {
 			<div className={css(Style.Parent)}>
 				<Waiting
 					data={waitingRide}
+				/>
+				<Ongoing
+					data={ongoingRide}
+				/>
+				<Complete
+					data={completedRide}
 				/>
 			</div>
 		);

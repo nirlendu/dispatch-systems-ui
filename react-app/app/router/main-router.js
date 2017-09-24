@@ -58,28 +58,19 @@ router.get('/customer', function(req, res) {
 			res.redirect(302, redirectLocation.pathname + redirectLocation.search)
 		} else if (renderProps) {
 
-			const {html, css} = StyleSheetServer.renderStatic(() => {
-				return ReactDOMServer.renderToString(
-					Provider({store: store}, RouterContext(renderProps))
-				);
-			});
+			const preloadedState = store.getState();
 			const head = Helmet.rewind();
 			const pageJs = Url.Static.Js + AssetName['customer.js'];
 			const webPage = compressor`
 				<!doctype html>
 				<html>
 					<head>
-						<meta charset="utf-8" />
-						<title>Test App</title>
-						<title>${head.title}</title>
-						${head.meta.toString()}
-						${head.link.toString()}
-						${head.style.toString()}
-						${head.script.toString()}
-						<style data-aphrodite>${css.content}</style>
 					</head>
 					<body>
-						<div id="react-mount">${html}</div>
+						<div id="react-mount"></div>
+						<script>
+						  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+						</script>
 						<script src=${commonJs}></script>
 						<script src=${pageJs}></script>
 					</body>
@@ -173,11 +164,6 @@ router.get('/dashboard', function(req, res) {
 				res.redirect(302, redirectLocation.pathname + redirectLocation.search)
 			} else if (renderProps) {
 
-				const {html, css} = StyleSheetServer.renderStatic(() => {
-					return ReactDOMServer.renderToString(
-						Provider({store: store}, RouterContext(renderProps))
-					);
-				});
 				const preloadedState = store.getState();
 				const head = Helmet.rewind();
 				const pageJs = Url.Static.Js + AssetName['dashboard.js'];
@@ -185,17 +171,9 @@ router.get('/dashboard', function(req, res) {
 					<!doctype html>
 					<html>
 						<head>
-							<meta charset="utf-8" />
-							<title>Test App</title>
-							<title>${head.title}</title>
-							${head.meta.toString()}
-							${head.link.toString()}
-							${head.style.toString()}
-							${head.script.toString()}
-							<style data-aphrodite>${css.content}</style>
 						</head>
 						<body>
-							<div id="react-mount">${html}</div>
+							<div id="react-mount"></div>
 							<script>
 							  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
 							</script>
