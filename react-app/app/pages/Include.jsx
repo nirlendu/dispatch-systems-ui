@@ -53,8 +53,6 @@ export default class Include extends React.Component {
 				link={[
 					{rel:"dns-prefetch", href: Url.Static.Host},
 					{rel:"preload", href: "https://fonts.gstatic.com/s/lusitana/v4/h_1ZjHXv2tOhJGwbefP69nYhjbSpvc47ee6xR_80Hnw.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous"},
-					{rel:"preload", href: Url.Static.App.PlaceholderImage450x300, as: "image"},
-					{rel:"preload", href: Url.Static.App.PlaceholderImage540x350, as: "image"},
 					{rel:"apple-touch-icon", sizes:"180x180", href: Url.Static.App.Endpoint + "favicon/apple-icon-180x180.png"},
 					{rel:"icon", type:"image/png", sizes:"192x192",href: Url.Static.App.Endpoint + "favicon/android-icon-192x192.png"},
 					{rel:"icon", sizes:"16x16", type:"image/png", href: Url.Static.App.Endpoint + "favicon/favicon-16x16.png"},

@@ -1,6 +1,10 @@
 {
-  "common.js": "common.ac2b589aa87c96a7819e.js",
-  "customer.js": "customer.ff39b57286f8fa402421.js",
-  "dashboard.js": "dashboard.5fb75213000773bd7891.js",
-  "driver.js": "driver.9189c2016e5bb8faaebd.js"
+  "common.js": "common.fa30c88678cf88754718.js",
+  "common.js.map": "common.fa30c88678cf88754718.js.map",
+  "customer.js": "customer.8af7a23b46955465b894.js",
+  "customer.js.map": "customer.8af7a23b46955465b894.js.map",
+  "dashboard.js": "dashboard.96e6c0e9f6d6ef76d02c.js",
+  "dashboard.js.map": "dashboard.96e6c0e9f6d6ef76d02c.js.map",
+  "driver.js": "driver.e80b7e5da43037c17a07.js",
+  "driver.js.map": "driver.e80b7e5da43037c17a07.js.map"
 }
