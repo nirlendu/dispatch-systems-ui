@@ -12,7 +12,7 @@ var ConstUrlsProduction = {
 		'Font': '/assets/fonts/',
 		'Media': '/assets/img/',
 		'Css': '/assets/css/',
-		'Js': '/assets/js/',
+		'Js': 'https://assets.panally.com/static/docsapp/',
 		'App': {
 			'Endpoint': '/assets/img/app/',
 			'PlaceholderImage450x300' : '/assets/img/app/placeholder/placeholder.jpg',
