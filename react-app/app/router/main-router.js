@@ -229,4 +229,21 @@ router.get('/dashboard', function(req, res) {
 });
 
 
+router.post('/customer', function(req, res) {
+	const url = Url.Post.Customer;
+	request
+	.post(url)
+	.send(req.body)
+	.end(function(error, response){
+		if (error) {
+			return error;
+		}
+		if (response.body == ''){
+			return res.status(401).send();
+		}
+		res.status(200).send('Ok');
+	});
+});
+
+
 module.exports = router;

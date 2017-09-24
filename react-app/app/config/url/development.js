@@ -22,6 +22,9 @@ var ConstUrlsDev = {
 	},
 	'Fetch': {
 		'Dashboard': 'http://localhost:3000/api/dashboard',
+	},
+	'Post': {
+		'Customer': 'http://localhost:3000/api/customer',
 	}
 }
 

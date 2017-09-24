@@ -66,7 +66,7 @@ module.exports = {
 					],
 					presets: ['es2015', 'react', 'stage-1'],
 				},
-			},
+		    },
 			{
 				test: /\.jsx?$/,
 					loader: 'babel-loader',
@@ -75,10 +75,17 @@ module.exports = {
 				},
 				exclude: [/node_modules/],
 			},
+			{test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url?limit=10000&mimetype=application/font-woff"},
+			{test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+			{test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
 			{ 
 				test: /\.json$/, 
 				loader: 'json-loader' 
-			}
+			},
+		    {
+		        test: /\.css$/,
+		        use: [ 'style-loader', 'css-loader' ]
+		    }
 		],
 	},
 	resolve: {

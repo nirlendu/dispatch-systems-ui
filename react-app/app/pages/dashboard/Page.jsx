@@ -9,7 +9,7 @@
 import React from 'react'
 import {connect}  from 'react-redux'
 
-import Index from 'app/pages/dashboard/Index'
+import Dashboard from 'app/pages/dashboard/Dashboard'
 import Include from 'app/pages/dashboard/Include'
 
 
@@ -18,7 +18,7 @@ class Page extends React.Component {
 		return (
 			<div id="react-mount">
 				<Include/>
-				<Index
+				<Dashboard
 					data={this.props.data}
 				/>
 			</div>

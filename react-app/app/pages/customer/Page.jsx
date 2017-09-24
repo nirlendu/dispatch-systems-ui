@@ -9,7 +9,7 @@
 import React from 'react'
 import {connect}  from 'react-redux'
 
-import Index from 'app/pages/customer/Index'
+import Customer from 'app/pages/customer/Customer'
 import Include from 'app/pages/customer/Include'
 
 
@@ -18,9 +18,7 @@ class Page extends React.Component {
 		return (
 			<div id="react-mount">
 				<Include/>
-				<Index
-					data={this.props.data}
-				/>
+				<Customer/>
 			</div>
 		);
 	}

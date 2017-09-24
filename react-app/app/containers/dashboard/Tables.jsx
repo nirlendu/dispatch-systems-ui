@@ -11,7 +11,6 @@ import { StyleSheet, css } from 'aphrodite'
 
 import CoreStyle from  'app/config/core/style'
 
-import FirstDescription from 'app/containers/index/FirstDescription'
 
 const Style = StyleSheet.create({
 	Wrapper : {
@@ -30,13 +29,30 @@ const Style = StyleSheet.create({
 	},
 })
 
-export default class Index extends React.Component {
+export default class Dashboard extends React.Component {
 	render() {
+		const entries = this.props.data.map(function(data) {
+			return(
+				<tr key={data.rideId}>
+					<td>{data.rideId}</td>
+					<td>{data.customerId}</td>
+					<td>{data.requestTime}</td>
+					<td>{data.status}</td>
+					<td>{data.driverId}</td>
+				</tr>
+			)
+		})
 		return (
-			<div className={css(Style.Wrapper)}>
-				<FirstDescription/>
-				{this.props.data}
-			</div>
+			<table>
+				<tr>
+					<th>Ride ID</th>
+					<th>Customer ID</th> 
+					<th>Time Elapsed</th>
+					<th>Status</th>
+					<th>Driver ID</th>
+				</tr>
+				{entries}
+			</table>
 		)
 	}
 }

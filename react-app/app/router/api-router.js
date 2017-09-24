@@ -35,6 +35,15 @@ router.get('/api/dashboard', function(req, res) {
 	})
 });
 
+router.post('/api/customer', function(req, res) {
+	request
+	.post(Url.Api + 'ride/new')
+	.send(req.body)
+	.end(function(error, response){
+		res.send();
+	})
+});
+
 if (process.env.LOCAL == 'true'){
 	module.exports = require('app/router/local-router');
 } else {
